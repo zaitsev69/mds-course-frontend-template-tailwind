@@ -1,0 +1,7 @@
+:root {
+  --color-primary: oklch(38.94% 0.1494 262.32);
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+}

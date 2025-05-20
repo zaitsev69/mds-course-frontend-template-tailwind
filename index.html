@@ -1,0 +1,101 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Store</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .font-bebas {
+            font-family: 'Bebas Neue', sans-serif;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900 font-montserrat">
+
+    <header class="w-full shadow-md bg-white h-16">
+        <div
+            class="h-full mx-auto w-full max-w-[1872px] px-4 sm:px-8 lg:px-16 xl:px-24 flex items-center justify-between">
+
+
+            <div class="flex-shrink-0">
+                <img src="public/logo.png" alt="Logo">
+            </div>
+            <ul class="flex space-x-6 font-normal">
+                <li>Cheveux</li>
+                <li>Corps</li>
+                <li>Accessoires</li>
+                <li>Contact</li>
+            </ul>
+
+            <ul class="flex space-x-4">
+                <li>
+                    <img src="public/guy.svg" alt="Profil" class="h-6">
+                </li>
+                <li>
+                    <img src="public/cart.svg" alt="Panier" class="h-6">
+                </li>
+            </ul>
+
+        </div>
+    </header>
+
+    <div class="mx-auto w-full max-w-[1872px] px-4 sm:px-8 lg:px-16 xl:px-24">
+        <!-- Arianne -->
+        <div>
+            <div
+                class="w-full h-full pt-2.5 pb-2.5 overflow-hidden inline-flex flex-col justify-start items-start gap-2.5">
+                <div class="inline-flex rounded-md justify-start items-center gap-4">
+
+                    <!-- Icon 1 -->
+                    <div data-state="Default" data-type="Icon" class="relative w-5 h-5">
+                        <div class="absolute top-0 left-0 w-5 h-5 overflow-hidden">
+                            <img src="public/home.svg">
+                        </div>
+                    </div>
+
+                    <!-- Slash 1 -->
+                    <div data-style="Slash" class="relative w-5 h-5 overflow-hidden">
+                        <img src="public/separator.svg">
+                    </div>
+
+                    <!-- Text "Cheveux" -->
+                    <div data-state="Default" data-type="Text" class="flex justify-center items-center">
+                        <div
+                            class="text-[14px] font-normal leading-[20px] font-montserrat text-[rgba(17,17,17,0.75)] break-words">
+                            Cheveux
+                        </div>
+                    </div>
+
+                    <!-- Slash 2 -->
+                    <div data-style="Slash" class="relative w-5 h-5 overflow-hidden">
+                        <img src="public/separator.svg">
+                    </div>
+
+                    <!-- Text "Soins" -->
+                    <div data-state="Default" data-type="Text" class="flex justify-center items-center">
+                        <div
+                            class="text-[14px] font-normal leading-[20px] font-montserrat text-[rgba(17,17,17,0.75)] break-words">
+                            Soins
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+
+
+</html>

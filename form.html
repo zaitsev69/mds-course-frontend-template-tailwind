@@ -1,0 +1,91 @@
+<html lang="en" x-data="employeeApp()" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Employee</title>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <script type="module" src="/src/js/main.js"></script>
+</head>
+
+<body class="flex flex-col items-center justify-start min-h-screen bg-gray-100 p-6 space-y-10">
+
+  <!-- Form -->
+  <form @submit.prevent="addEmployee" class="bg-white p-8 rounded-2xl shadow-md w-full max-w-md space-y-6">
+    <h2 class="text-2xl font-bold text-center text-gray-800">Add Employee</h2>
+
+    <div>
+      <label class="block mb-2 text-sm font-medium text-gray-700" for="fullName">Full Name</label>
+      <input type="text" id="fullName" x-model="form.fullName" name="fullName" required
+        class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="John Doe">
+    </div>
+
+    <div>
+      <label class="block mb-2 text-sm font-medium text-gray-700" for="function">Function</label>
+      <input type="text" id="function" x-model="form.function" name="function" required
+        class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Software Engineer">
+    </div>
+
+    <div>
+      <label class="block mb-2 text-sm font-medium text-gray-700" for="email">Email</label>
+      <input type="email" id="email" x-model="form.email" name="email" required
+        class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="john@example.com">
+    </div>
+
+    <button type="submit"
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-all">
+      Add Employee
+    </button>
+  </form>
+
+  <!-- Employees Cards -->
+  <div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl">
+    <template x-for="employee in employees" :key="employee.id">
+      <div class="bg-white p-6 rounded-2xl shadow-lg flex flex-col items-center text-center space-y-3 relative">
+        <img :src="employee.photo" alt="Employee photo" class="w-24 h-24 rounded-full object-cover mb-2">
+        <p class="text-lg font-bold" x-text="employee.fullName"></p>
+        <p class="text-gray-500" x-text="employee.function"></p>
+        <p class="text-gray-400 text-sm" x-text="employee.email"></p>
+
+        <!-- Delete Button -->
+        <button @click="removeEmployee(employee.id)"
+          class="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white p-1 rounded-full">
+          X
+        </button>
+      </div>
+    </template>
+  </div>
+
+  <!-- Alpine.js Logic -->
+  <script>
+    function employeeApp() {
+      return {
+        form: {
+          fullName: '',
+          function: '',
+          email: ''
+        },
+        employees: [],
+        addEmployee() {
+          if (this.form.fullName && this.form.function && this.form.email) {
+            this.employees.push({
+              id: Date.now(), // unique ID
+              fullName: this.form.fullName,
+              function: this.form.function,
+              email: this.form.email,
+              photo: `https://picsum.photos/200`
+            });
+            // Reset form
+            this.form.fullName = '';
+            this.form.function = '';
+            this.form.email = '';
+          }
+        },
+        removeEmployee(id) {
+          this.employees = this.employees.filter(employee => employee.id !== id);
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
